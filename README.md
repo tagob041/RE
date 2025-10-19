@@ -1,6 +1,6 @@
 # Riyadah Elite - Full-Stack Gaming Platform
 
-A comprehensive gaming platform built with React (Vite + Tailwind) frontend and Django backend, integrated with Supabase for data persistence.
+A comprehensive gaming platform built with React (Vite + Tailwind) frontend and Django backend.
 
 ## Tech Stack
 
@@ -19,9 +19,7 @@ A comprehensive gaming platform built with React (Vite + Tailwind) frontend and 
 - SQLite3 database
 
 ### Database
-- Supabase (PostgreSQL)
-- Row Level Security (RLS) enabled
-- Tables: profiles, tournaments, tournament_participants
+- SQLite3
 
 ## Project Structure
 
@@ -134,31 +132,7 @@ POST /api/auth/login/
 
 ## Database Schema
 
-### Profiles Table
-- `id` (uuid, primary key)
-- `username` (text, unique)
-- `email` (text)
-- `first_name` (text)
-- `last_name` (text)
-- `role` (text, default: 'player')
-- `created_at` (timestamptz)
-- `updated_at` (timestamptz)
-
-### Tournaments Table
-- `id` (uuid, primary key)
-- `title` (text)
-- `description` (text)
-- `game` (text)
-- `start_date` (timestamptz)
-- `prize_pool` (numeric)
-- `status` (text, default: 'upcoming')
-- `created_at` (timestamptz)
-
-### Tournament Participants Table
-- `id` (uuid, primary key)
-- `tournament_id` (uuid, references tournaments)
-- `user_id` (uuid, references profiles)
-- `registered_at` (timestamptz)
+Django models defined in `authapp/models.py` using SQLite3.
 
 ## Features
 
@@ -212,7 +186,6 @@ CORS credentials are enabled for session authentication.
 
 ## Security Features
 
-- Row Level Security (RLS) on all Supabase tables
 - Session-based authentication
 - CSRF protection
 - Password validation
